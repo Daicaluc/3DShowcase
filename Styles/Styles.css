@@ -1,41 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+<style>
+        body {
+            background-color: #050508;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #111827;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    color: #e5e7eb;
-    min-height: 100vh;
-}
+        /* Fondo de rejilla animado */
+        .bg-grid {
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, white, 95%, transparent);
+            opacity: 0.15;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-.visor-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 90%;
-    height: 0;
-    overflow: hidden;
-    background-color: #000; 
-    border-bottom: 1px solid #374151;
-}
+        /* Animación de gradiente en texto */
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #8b5cf6, #f472b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientMove 5s linear infinite;
+        }
 
-.visor-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
 
-.model-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
+        /* Estilos para el efecto Tilt 3D */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        
+        .tilt-content {
+            transform: translateZ(20px);
+        }
 
-.model-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    border-color: #3b82f6;
-}
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0C15;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Clases para animaciones de entrada (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
