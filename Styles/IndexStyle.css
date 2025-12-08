@@ -4,7 +4,6 @@
             overflow-x: hidden;
         }
 
-        /* Fondo de rejilla animado */
         .bg-grid {
             background-size: 50px 50px;
             mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
@@ -16,7 +15,6 @@
             pointer-events: none;
         }
 
-        /* Animación de gradiente en texto */
         .text-gradient {
             background: linear-gradient(to right, #22d3ee, #8b5cf6, #f472b6);
             -webkit-background-clip: text;
@@ -31,7 +29,6 @@
             100% { background-position: 200% 50%; }
         }
 
-        /* Estilos para el efecto Tilt 3D */
         .tilt-card {
             transform-style: preserve-3d;
             transform: perspective(1000px);
@@ -41,7 +38,6 @@
             transform: translateZ(20px);
         }
 
-        /* Scrollbar personalizada */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -56,7 +52,6 @@
             background: #475569;
         }
 
-        /* Clases para animaciones de entrada (Scroll Reveal) */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
